@@ -55,19 +55,6 @@ O algoritmo segue o ciclo clássico de um filtro de partículas:
 | `RESAMPLE_EVERY_N` | Resampling executado a cada N ciclos (não todo ciclo) | 4 |
 | `LINEAR_VEL`, `ANGULAR_VEL` | Velocidade comandada ao robô | 0 (ver limitação abaixo) |
 
-## Convenções confirmadas da plataforma
-
-Durante o desenvolvimento, duas convenções da API foram confirmadas
-experimentalmente (não documentadas explicitamente, ou facilmente
-confundidas):
-
-- **Indexação do mapa de ocupação:** `occupancy[mx, my]`, não
-  `occupancy[my, mx]`. Confirmado comparando a célula da posição real do
-  robô (`HAL.getPose3d()`, sempre em espaço livre) nas duas convenções.
-- **Convenção do laser:** o feixe de índice `90` corresponde à frente do
-  robô; `0` é a lateral direita; `180` é a lateral esquerda. O ângulo de
-  um feixe `i`, relativo ao yaw do robô, é `radians(i - 90)`.
-
 ## Limitação conhecida: robô estacionário
 
 Nesta versão, `LINEAR_VEL = ANGULAR_VEL = 0`: o robô permanece parado
